@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Novo
+{% endblock %}
+
+{% block conteudo %}
+<h1>Editar texto</h1>
+<div class="borda">
+     <div class="my-3 text-start">
+        <form action="/editar" method="post">
+          <input type="text" name="id" value="{{ texto["id"] }}" class="d-none">
+            <div class="mb-3">
+                <label for="titulo" class="form-label fw-bold">Título</label>
+                <input type="text" autocomplete="off" class="form-control" name="titulo" id="titulo" value="{{texto["titulo"]}}">
+              </div>
+              <div class="mb-3">
+                <label for="texto" class="form-label fw-bold">Texto</label>
+                <textarea type="text" autocomplete="off" class="form-control" name="texto" id="texto" rows="4">{{ texto["texto"] }}</textarea>
+              </div>
+              <div class="mb-3">
+                <span class="text-danger">{{ erro }}</span>
+              </div>
+              <button class="btn btn-outline-dark">Concluir</button>
+        </form>
+     </div>
+</div>
+{% endblock %}
