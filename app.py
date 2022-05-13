@@ -55,6 +55,9 @@ def cadastro():
 
         return redirect("/entrar")
 
+    if session.get("nome"):
+        return redirect("/")
+
     return render_template("cadastro.html")
 
 
@@ -76,6 +79,9 @@ def entrar():
         session["nome"] = nome
         session["id"] = check[0]["id"]
         return redirect("/usuario?q=" + nome)
+
+    if session.get("nome"):
+        return redirect("/")
 
     return render_template("entrar.html")
 
